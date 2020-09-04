@@ -1,0 +1,38 @@
+
+
+<h2>Lista de Jogos</h2>
+<hr>
+<a href="/inserir"><button class="btn btn-success">Adicionar Jogo</button></a>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each results}}
+                <tr>
+                    <td>{{nome}}</td>
+                    <td>{{quantidade}}</td>
+                    <td>{{preco}}</td>
+                    <td><a href="/editar/{{id}}"><button class="btn btn-success">Editar</button></a>
+                    </td>
+                    <form action="deletar/{{id}}" method="POST">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <td><button class="btn btn-danger">Deletar</button></td>
+                    </form>
+                    {{else}}
+                    <H4 class="mt-4">Nenhuma categoria registrada no momento</H4>
+                    {{/each}}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

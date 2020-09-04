@@ -1,0 +1,26 @@
+<h2>Cadastro de Games</h2>
+<hr>
+<div class="card">
+    <div class="card-body">
+        {{#each results}}
+        <form action="confirmar" method="POST">
+            <div class="form-group">
+                <label for="nomeGame">Nome</label>
+                <input type="text" name="nome" id="nomeGame" class="form-control" value="{{nome}}">
+            </div>
+            <div class="form-group">
+                <label for="quantidade">Quantidade</label>
+                <input type="text" class="form-control" name="quantidade" id="quantidadeGame" value={{quantidade}}>
+            </div>
+            <div class="form-group">
+                <label for="preco">Valor</label>
+                <input type="text" class="form-control" name="preco" id="precoGame" value={{preco}}>
+            </div>
+             <div class="form-group">
+                <input type="hidden" class="form-control" name="id" id="idGame" value={{id}}>
+            </div>
+            <button type="submit" class="btn btn-success">Confirmar</button>
+        </form>
+        {{/each}}
+    </div>
+</div>
