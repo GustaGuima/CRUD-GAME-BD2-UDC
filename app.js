@@ -57,13 +57,13 @@ app.get('/inserir', (req, res) => {
 app.post('/inserir/add', urlencodeParser, (req, res) => {
     sql.query('INSERT INTO games(nome, quantidade, preco, ativo) VALUES (?, ?, ?, 1)', [req.body.nome, req.body.quantidade, req.body.preco], (err) => {
         if (!err) {
-            
+            req.flash('success_msg', 'Jogo Adicionado com Sucesso')
         } else {
             console.log(err)
-            
+            req.flash('error_msg', 'Erro ao Adicionar o Jogo')
         }
+        res.redirect('/')
     })
-    res.redirect('/')
 })
 
 app.get('/editar/:id', (req, res) => {
